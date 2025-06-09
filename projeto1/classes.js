@@ -69,15 +69,32 @@ class cenario{
     constructor(lutador1,lutador2, lutador1el, lutador2el){
         this.lutador1 = lutador1;
         this.lutador2 = lutador2;
-        lutador1el = lutador1el;
-        lutador2el = lutador2el;
+        this.lutador1el = lutador1el;
+        this.lutador2el = lutador2el;
     }
     inicio(){
-        this.uptade();
+        this.update();
+        this.lutador1el.querySelector('.atacar').addEventListener('click', () => this.fzAtack(this.lutador1, this.lutador2))
+        this.lutador2el.querySelector('.atacar').addEventListener('click', () => this.fzAtack(this.lutador2, this.lutador1))
+
     }
 
-    uptade(){
+    update(){
         //lutador 1:
-    
+        this.lutador1el.querySelector('.nome').innerHTML = `${this.lutador1.nome} --> ${this.lutador1.life} HP%`
+        let lut1vd = (this.lutador1.life / this.lutador1.maxlife) * 100;
+        this.lutador1el.querySelector('.hp').style.width = `${lut1vd}%`;                
+
+        //lutador 2:
+        this.lutador2el.querySelector('.nome').innerHTML = `${this.lutador2.nome} --> ${this.lutador2.life} HP%`
+        let lut2vd = (this.lutador2.life / this.lutador2.maxlife) * 100;
+        this.lutador2el.querySelector('.hp').style.width = `${lut2vd}%`;
+
     };
+
+    fzAtack(atacante, atacado) {
+        console.log(`${atacante.nome} está atacando ${atacado.nome}`);
+        this.update();      
+  n
+    }
 }
