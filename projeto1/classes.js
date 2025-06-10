@@ -66,12 +66,14 @@ class monstrao extends personagem{
 }
 
 class cenario{
-    constructor(lutador1,lutador2, lutador1el, lutador2el){
+    constructor(lutador1,lutador2, lutador1el, lutador2el, logobject){
         this.lutador1 = lutador1;
         this.lutador2 = lutador2;
         this.lutador1el = lutador1el;
         this.lutador2el = lutador2el;
+        this.log = logobject;
     }
+
     inicio(){
         this.update();
         this.lutador1el.querySelector('.atacar').addEventListener('click', () => this.fzAtack(this.lutador1, this.lutador2))
@@ -93,8 +95,50 @@ class cenario{
     };
 
     fzAtack(atacante, atacado) {
-        console.log(`${atacante.nome} está atacando ${atacado.nome}`);
-        this.update();      
-  n
+        if(atacante.life <= 0){
+            this.log.addmensagem(`${Atacante.nome} não pode atacar ele está morto.`) 
+            return;
+        }
+        if(atacado.life <= 0 ){
+            this.log.addmensagem(`${atacado.nome} já está morto`)
+            return;
+        }
+        this.log.addmensagem(`${atacante.nome} está atacando ${atacado.nome}`);
+
+        let fatorDeAtq = (Math.random() * 2).toFixed(2);
+        let ataqueatual = atacante.ataque * fatorDeAtq;
+
+        let fatorDeDef = (Math.random() * 2).toFixed(2);
+        let defesaatual = atacado.defesa * fatorDeDef;
+
+        if(ataqueatual > defesaatual){
+            atacado.life = (atacado.life - ataqueatual).toFixed(2);
+            this.log.addmensagem(`${atacante.nome} causou ${ataqueatual.toFixed(2)} de dano.`);
+        } else{
+            this.log.addmensagem(`${atacado.nome} conseguiu defender.`);
+        }
+        
+            this.update();
+    }
+}
+
+class Log {
+    list = [];
+
+    constructor(listEl){
+        this.listEl = listEl;
+    }
+
+    addmensagem(msg){
+        this.list.push(msg);
+        this.mostrar();
+    }
+
+    mostrar(){
+        this.listEl.innerHTML = '';
+        
+        for(let i in this.list) {
+            this.listEl.innerHTML += `<li>${this.list[i]}</li>`;
+        }
     }
 }
