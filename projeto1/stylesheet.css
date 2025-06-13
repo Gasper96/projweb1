@@ -24,3 +24,27 @@
     overflow-y: scroll;
 
 }
+.kiko{
+    margin-top:200px;
+    width: 100px;
+}
+
+.chaves{
+    margin:200px 0 0 350px;
+    width: 105px;
+}
+
+body{
+    background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/47cdb340143315.5606d030732ac.jpg);
+    background-repeat: no-repeat;
+    background-size: width= '100%';
+}  
+
+.atacar{
+    color: yellow;
+    border-radius: 10px;
+    background-color: red;
+    font-size: 25px;
+    
+
+}
