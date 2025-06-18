@@ -8,20 +8,25 @@
 }
 
 .hptotal {
-    height: 10px;
+    height: 20px;
     border: 1px solid black;
-    border-radius: 5px;
+    border-radius: 5px 0 25px 0;
 }
 .hptotal .hp{
     height: inherit;
     background-color: red;
-    border-radius: 5px;
+    border-radius: 5px 0 25px 0; 
 }
 
 .log{
+    padding-left: 50%;
+    width: 50%;
     border: 1px dotted #999;
     height: 200px;
-    overflow-y: scroll;
+    overflow-y: auto;
+    font-size: 20px;
+    font-weight: bold;
+
 
 }
 .kiko{
@@ -47,4 +52,11 @@ body{
     font-size: 25px;
     
 
+}
+
+.nome{
+    font-size: 30px;
+    color:white;
+    border:solid black;
+    border-radius: 5px 5px 50px 5px;
 }

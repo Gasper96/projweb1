@@ -20,10 +20,10 @@ class personagem{
 
 } 
 
-class cavaleiro extends personagem{
+class chaves extends personagem{
 
-    constructor(nome){
-        super(nome);
+    constructor(){
+        super('Chaves');
         this.life = 100;
         this.ataque = 10;
         this.defesa = 8;
@@ -43,13 +43,13 @@ class mago extends personagem{
     }
 }
 
-class monstrinho extends personagem{
+class quico extends personagem{
 
     constructor(){
-        super('Monstrinho');
-        this.life = 40;
-        this.ataque = 4;
-        this.defesa = 4;
+        super('Quico');
+        this.life = 100;
+        this.ataque = 8;
+        this.defesa = 10;
         this.maxlife = this.life;
     }
 }
@@ -96,11 +96,11 @@ class cenario{
 
     fzAtack(atacante, atacado) {
         if(atacante.life <= 0){
-            this.log.addmensagem(`${Atacante.nome} não pode atacar ele está morto.`) 
+            this.log.addmensagem(`${Atacante.nome} não pode atacar ele já está caído.`) 
             return;
         }
         if(atacado.life <= 0 ){
-            this.log.addmensagem(`${atacado.nome} já está morto`)
+            this.log.addmensagem(`${atacado.nome} já está caído.`)
             return;
         }
         this.log.addmensagem(`${atacante.nome} está atacando ${atacado.nome}`);

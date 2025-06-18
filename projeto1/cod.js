@@ -1,10 +1,10 @@
 let log = new Log(document.querySelector('.log'));
-let char = new cavaleiro('GABS');
-let monster = new monstrao();
+let _chaves = new chaves();
+let _quico = new quico();
 
 const mapa = new cenario(
-    char,
-    monster,
+    _chaves,
+    _quico,
     document.querySelector('#personagem'),
     document.querySelector('#inimigo'),
     log
